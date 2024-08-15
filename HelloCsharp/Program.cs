@@ -10,24 +10,27 @@
     {
         static void Main(string[] args)
         {
-            GiftBox a = new()
+            GiftBox a = NewGiftBox(letter: "A 친구야 잘 지내니?", money: 100_000);
+            GiftBox b = NewGiftBox(letter: "B 친구야 잘 지내니?", money: 120_000);
+            GiftBox c = NewGiftBox(letter: "C 친구야 잘 지내니?", money: 130_000);
+            
+            PrintGiftBox(a);
+            PrintGiftBox(b);
+            PrintGiftBox(c);
+        }
+        private static GiftBox NewGiftBox(string letter, int money)
+        {
+            GiftBox box = new()
             {
-                Letter = "A 친구야 잘 지내니?",
-                Money = 100_000,
+                Letter = letter,
+                Money = money,
             };
-            GiftBox b = new()
-            {
-                Letter = "B 친구야 잘 지내니?",
-                Money = 120_000,
-            };
-            GiftBox c = new()
-            {
-                Letter = "C 친구야 잘 지내니?",
-                Money = 130_000,
-            };
-            Console.WriteLine($"a 내용: {a.Letter}\n돈: {a.Money}");
-            Console.WriteLine($"b 내용: {b.Letter}\n돈: {b.Money}");
-            Console.WriteLine($"c 내용: {c.Letter}\n돈: {c.Money}");
+            return box;
+        }
+
+        private static void PrintGiftBox(GiftBox box)
+        {
+            Console.WriteLine($"내용: {box.Letter}, 돈: {box.Money}");
         }
     }
 }
